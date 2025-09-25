@@ -112,11 +112,7 @@ void main() {
       const password = 'Password';
       await subject.setEspAccessPoint(deviceName, ssid, password);
 
-      final expectedArguments = <String, dynamic>{
-        'deviceName': deviceName,
-        'ssid': ssid,
-        'password': password,
-      };
+      final expectedArguments = <String, dynamic>{'deviceName': deviceName, 'ssid': ssid, 'password': password};
 
       expect(log, <Matcher>[isMethodCall('setAccessPoint', arguments: expectedArguments)]);
     });
@@ -124,11 +120,7 @@ void main() {
     test('sendData', () async {
       await subject.sendData(deviceName, endpoint, data);
 
-      final expectedArguments = <String, dynamic>{
-        'deviceName': deviceName,
-        'endpointPath': endpoint,
-        'data': data,
-      };
+      final expectedArguments = <String, dynamic>{'deviceName': deviceName, 'endpointPath': endpoint, 'data': data};
 
       expect(log, <Matcher>[isMethodCall('sendData', arguments: expectedArguments)]);
     });

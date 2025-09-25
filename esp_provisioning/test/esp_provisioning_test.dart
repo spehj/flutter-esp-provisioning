@@ -63,8 +63,9 @@ void main() {
     });
 
     test('connect', () async {
-      when(() => espProvisioningPlatform.connectDevice(deviceA.name, serviceUuid, proofOfPossession))
-          .thenAnswer((_) async {});
+      when(
+        () => espProvisioningPlatform.connectDevice(deviceA.name, serviceUuid, proofOfPossession),
+      ).thenAnswer((_) async {});
       await subject.connect(deviceA.name, proofOfPossession);
       verify(() => espProvisioningPlatform.connectDevice(deviceA.name, serviceUuid, proofOfPossession)).called(1);
     });
@@ -76,8 +77,9 @@ void main() {
     });
 
     test('getAccessPoints', () async {
-      when(() => espProvisioningPlatform.getEspAccessPoints(deviceA.name))
-          .thenAnswer((_) async => [accessPointJsonString]);
+      when(
+        () => espProvisioningPlatform.getEspAccessPoints(deviceA.name),
+      ).thenAnswer((_) async => [accessPointJsonString]);
       expect(await subject.getAccessPoints(deviceA.name), [ap]);
       verify(() => espProvisioningPlatform.getEspAccessPoints(deviceA.name)).called(1);
     });

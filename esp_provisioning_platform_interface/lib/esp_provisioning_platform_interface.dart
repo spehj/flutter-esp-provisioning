@@ -79,12 +79,12 @@ abstract class EspProvisioningPlatform extends PlatformInterface {
   /// Send [data] to the ESP device with the specified [deviceName] using the custom BLE endpoint indicated by
   /// [endpointPath].
   Future<Uint8List> sendData(String deviceName, String endpointPath, Uint8List data) async {
-    final base64StringResult =
-        await methodChannel.invokeMethod<Uint8List>(PluginMethodNames.sendData, <String, dynamic>{
-      PluginArgumentNames.deviceName: deviceName,
-      PluginArgumentNames.endpointPath: endpointPath,
-      PluginArgumentNames.data: data,
-    });
+    final base64StringResult = await methodChannel
+        .invokeMethod<Uint8List>(PluginMethodNames.sendData, <String, dynamic>{
+          PluginArgumentNames.deviceName: deviceName,
+          PluginArgumentNames.endpointPath: endpointPath,
+          PluginArgumentNames.data: data,
+        });
     if (base64StringResult == null) throw Exception('Unable to send data.');
     return base64StringResult;
   }

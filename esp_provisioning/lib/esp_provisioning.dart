@@ -52,7 +52,9 @@ class EspProvisioning {
     int responseTimeoutSec = defaultResponseTimeoutSec,
   ]) async {
     // Get the access points as JSON strings.
-    final accessPointJsonStrings = await _espPlatform.getEspAccessPoints(deviceName).timeout(
+    final accessPointJsonStrings = await _espPlatform
+        .getEspAccessPoints(deviceName)
+        .timeout(
           Duration(seconds: responseTimeoutSec),
           onTimeout: () => throw TimeoutException('Failed to get access points within $responseTimeoutSec seconds.'),
         );
@@ -61,8 +63,8 @@ class EspProvisioning {
     final accessPointMaps = accessPointJsonStrings.map((e) => json.decode(e) as Map<String, dynamic>).toList();
 
     // Convert the maps into EspWifiAccessPoint objects and return the sorted by SSID.
-    final accessPoints = accessPointMaps.map(EspWifiAccessPoint.fromJson).toList()
-      ..sort((a, b) => a.ssid.compareTo(b.ssid));
+    final accessPoints =
+        accessPointMaps.map(EspWifiAccessPoint.fromJson).toList()..sort((a, b) => a.ssid.compareTo(b.ssid));
 
     return accessPoints;
   }
@@ -75,11 +77,12 @@ class EspProvisioning {
     String ssid,
     String password, [
     int responseTimeoutSec = defaultResponseTimeoutSec,
-  ]) =>
-      _espPlatform.setEspAccessPoint(deviceName, ssid, password).timeout(
-            Duration(seconds: responseTimeoutSec),
-            onTimeout: () => throw TimeoutException('Failed to set access point within $responseTimeoutSec seconds.'),
-          );
+  ]) => _espPlatform
+      .setEspAccessPoint(deviceName, ssid, password)
+      .timeout(
+        Duration(seconds: responseTimeoutSec),
+        onTimeout: () => throw TimeoutException('Failed to set access point within $responseTimeoutSec seconds.'),
+      );
 
   /// Sends [data] to the specified [endpoint] on the device with [deviceName], returning a [Uint8List] response.
   /// [responseTimeoutSec] is optional and defaults to [defaultResponseTimeoutSec].
@@ -88,9 +91,10 @@ class EspProvisioning {
     String endpoint,
     Uint8List data, [
     int responseTimeoutSec = defaultResponseTimeoutSec,
-  ]) =>
-      _espPlatform.sendData(deviceName, endpoint, data).timeout(
-            Duration(seconds: responseTimeoutSec),
-            onTimeout: () => throw TimeoutException('Failed to send data within $responseTimeoutSec seconds.'),
-          );
+  ]) => _espPlatform
+      .sendData(deviceName, endpoint, data)
+      .timeout(
+        Duration(seconds: responseTimeoutSec),
+        onTimeout: () => throw TimeoutException('Failed to send data within $responseTimeoutSec seconds.'),
+      );
 }

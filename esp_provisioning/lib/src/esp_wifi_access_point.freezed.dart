@@ -32,17 +32,27 @@ mixin _$EspWifiAccessPoint {
   /// The Wi-Fi signal strength of the access point.
   int get rssi => throw _privateConstructorUsedError;
 
+  /// Serializes this EspWifiAccessPoint to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $EspWifiAccessPointCopyWith<EspWifiAccessPoint> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of EspWifiAccessPoint
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $EspWifiAccessPointCopyWith<EspWifiAccessPoint> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $EspWifiAccessPointCopyWith<$Res> {
-  factory $EspWifiAccessPointCopyWith(EspWifiAccessPoint value, $Res Function(EspWifiAccessPoint) then) =
+  factory $EspWifiAccessPointCopyWith(
+          EspWifiAccessPoint value, $Res Function(EspWifiAccessPoint) then) =
       _$EspWifiAccessPointCopyWithImpl<$Res, EspWifiAccessPoint>;
   @useResult
-  $Res call({String ssid, int channel, EspWifiAccessPointSecurity security, int rssi});
+  $Res call(
+      {String ssid,
+      int channel,
+      EspWifiAccessPointSecurity security,
+      int rssi});
 }
 
 /// @nodoc
@@ -55,6 +65,8 @@ class _$EspWifiAccessPointCopyWithImpl<$Res, $Val extends EspWifiAccessPoint>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EspWifiAccessPoint
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,22 +97,30 @@ class _$EspWifiAccessPointCopyWithImpl<$Res, $Val extends EspWifiAccessPoint>
 }
 
 /// @nodoc
-abstract class _$$EspWifiAccessPointImplCopyWith<$Res> implements $EspWifiAccessPointCopyWith<$Res> {
-  factory _$$EspWifiAccessPointImplCopyWith(
-          _$EspWifiAccessPointImpl value, $Res Function(_$EspWifiAccessPointImpl) then) =
+abstract class _$$EspWifiAccessPointImplCopyWith<$Res>
+    implements $EspWifiAccessPointCopyWith<$Res> {
+  factory _$$EspWifiAccessPointImplCopyWith(_$EspWifiAccessPointImpl value,
+          $Res Function(_$EspWifiAccessPointImpl) then) =
       __$$EspWifiAccessPointImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String ssid, int channel, EspWifiAccessPointSecurity security, int rssi});
+  $Res call(
+      {String ssid,
+      int channel,
+      EspWifiAccessPointSecurity security,
+      int rssi});
 }
 
 /// @nodoc
 class __$$EspWifiAccessPointImplCopyWithImpl<$Res>
     extends _$EspWifiAccessPointCopyWithImpl<$Res, _$EspWifiAccessPointImpl>
     implements _$$EspWifiAccessPointImplCopyWith<$Res> {
-  __$$EspWifiAccessPointImplCopyWithImpl(_$EspWifiAccessPointImpl _value, $Res Function(_$EspWifiAccessPointImpl) _then)
+  __$$EspWifiAccessPointImplCopyWithImpl(_$EspWifiAccessPointImpl _value,
+      $Res Function(_$EspWifiAccessPointImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EspWifiAccessPoint
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +152,17 @@ class __$$EspWifiAccessPointImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$EspWifiAccessPointImpl with DiagnosticableTreeMixin implements _EspWifiAccessPoint {
+class _$EspWifiAccessPointImpl
+    with DiagnosticableTreeMixin
+    implements _EspWifiAccessPoint {
   const _$EspWifiAccessPointImpl(
-      {required this.ssid, required this.channel, required this.security, required this.rssi});
+      {required this.ssid,
+      required this.channel,
+      required this.security,
+      required this.rssi});
 
-  factory _$EspWifiAccessPointImpl.fromJson(Map<String, dynamic> json) => _$$EspWifiAccessPointImplFromJson(json);
+  factory _$EspWifiAccessPointImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EspWifiAccessPointImplFromJson(json);
 
   /// The SSID of the access point.
   @override
@@ -177,19 +203,23 @@ class _$EspWifiAccessPointImpl with DiagnosticableTreeMixin implements _EspWifiA
             other is _$EspWifiAccessPointImpl &&
             (identical(other.ssid, ssid) || other.ssid == ssid) &&
             (identical(other.channel, channel) || other.channel == channel) &&
-            (identical(other.security, security) || other.security == security) &&
+            (identical(other.security, security) ||
+                other.security == security) &&
             (identical(other.rssi, rssi) || other.rssi == rssi));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, ssid, channel, security, rssi);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EspWifiAccessPoint
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EspWifiAccessPointImplCopyWith<_$EspWifiAccessPointImpl> get copyWith =>
-      __$$EspWifiAccessPointImplCopyWithImpl<_$EspWifiAccessPointImpl>(this, _$identity);
+      __$$EspWifiAccessPointImplCopyWithImpl<_$EspWifiAccessPointImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -206,25 +236,29 @@ abstract class _EspWifiAccessPoint implements EspWifiAccessPoint {
       required final EspWifiAccessPointSecurity security,
       required final int rssi}) = _$EspWifiAccessPointImpl;
 
-  factory _EspWifiAccessPoint.fromJson(Map<String, dynamic> json) = _$EspWifiAccessPointImpl.fromJson;
-
-  @override
+  factory _EspWifiAccessPoint.fromJson(Map<String, dynamic> json) =
+      _$EspWifiAccessPointImpl.fromJson;
 
   /// The SSID of the access point.
-  String get ssid;
   @override
+  String get ssid;
 
   /// The channel of the access point. On Android, channel is unsupported so the value is always 0.
-  int get channel;
   @override
+  int get channel;
 
   /// The security configuration of the access point.
-  EspWifiAccessPointSecurity get security;
   @override
+  EspWifiAccessPointSecurity get security;
 
   /// The Wi-Fi signal strength of the access point.
-  int get rssi;
   @override
-  @JsonKey(ignore: true)
-  _$$EspWifiAccessPointImplCopyWith<_$EspWifiAccessPointImpl> get copyWith => throw _privateConstructorUsedError;
+  int get rssi;
+
+  /// Create a copy of EspWifiAccessPoint
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EspWifiAccessPointImplCopyWith<_$EspWifiAccessPointImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

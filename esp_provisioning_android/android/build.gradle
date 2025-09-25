@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace "com.spindance.esp_provisioning_android"
+    namespace "com.spindance.esp_provisioning"
     compileSdk 31
 
     compileOptions {
@@ -47,8 +47,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
-            consumerProguardFiles 'proguard-rules.pro'
+            minifyEnabled false
+            // consumerProguardFiles 'proguard-rules.pro' // removed for now
         }
     }
 }

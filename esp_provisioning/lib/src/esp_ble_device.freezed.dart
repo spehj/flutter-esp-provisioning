@@ -26,21 +26,28 @@ mixin _$EspBleDevice {
   /// The device's BLE RSSI. The Espressif iOS library does not provide this value; on iOS it will always be 0.
   int get rssi => throw _privateConstructorUsedError;
 
+  /// Serializes this EspBleDevice to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $EspBleDeviceCopyWith<EspBleDevice> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of EspBleDevice
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $EspBleDeviceCopyWith<EspBleDevice> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $EspBleDeviceCopyWith<$Res> {
-  factory $EspBleDeviceCopyWith(EspBleDevice value, $Res Function(EspBleDevice) then) =
+  factory $EspBleDeviceCopyWith(
+          EspBleDevice value, $Res Function(EspBleDevice) then) =
       _$EspBleDeviceCopyWithImpl<$Res, EspBleDevice>;
   @useResult
   $Res call({String name, int rssi});
 }
 
 /// @nodoc
-class _$EspBleDeviceCopyWithImpl<$Res, $Val extends EspBleDevice> implements $EspBleDeviceCopyWith<$Res> {
+class _$EspBleDeviceCopyWithImpl<$Res, $Val extends EspBleDevice>
+    implements $EspBleDeviceCopyWith<$Res> {
   _$EspBleDeviceCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -48,6 +55,8 @@ class _$EspBleDeviceCopyWithImpl<$Res, $Val extends EspBleDevice> implements $Es
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EspBleDevice
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -68,8 +77,10 @@ class _$EspBleDeviceCopyWithImpl<$Res, $Val extends EspBleDevice> implements $Es
 }
 
 /// @nodoc
-abstract class _$$EspBleDeviceImplCopyWith<$Res> implements $EspBleDeviceCopyWith<$Res> {
-  factory _$$EspBleDeviceImplCopyWith(_$EspBleDeviceImpl value, $Res Function(_$EspBleDeviceImpl) then) =
+abstract class _$$EspBleDeviceImplCopyWith<$Res>
+    implements $EspBleDeviceCopyWith<$Res> {
+  factory _$$EspBleDeviceImplCopyWith(
+          _$EspBleDeviceImpl value, $Res Function(_$EspBleDeviceImpl) then) =
       __$$EspBleDeviceImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -77,11 +88,15 @@ abstract class _$$EspBleDeviceImplCopyWith<$Res> implements $EspBleDeviceCopyWit
 }
 
 /// @nodoc
-class __$$EspBleDeviceImplCopyWithImpl<$Res> extends _$EspBleDeviceCopyWithImpl<$Res, _$EspBleDeviceImpl>
+class __$$EspBleDeviceImplCopyWithImpl<$Res>
+    extends _$EspBleDeviceCopyWithImpl<$Res, _$EspBleDeviceImpl>
     implements _$$EspBleDeviceImplCopyWith<$Res> {
-  __$$EspBleDeviceImplCopyWithImpl(_$EspBleDeviceImpl _value, $Res Function(_$EspBleDeviceImpl) _then)
+  __$$EspBleDeviceImplCopyWithImpl(
+      _$EspBleDeviceImpl _value, $Res Function(_$EspBleDeviceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EspBleDevice
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,7 +121,8 @@ class __$$EspBleDeviceImplCopyWithImpl<$Res> extends _$EspBleDeviceCopyWithImpl<
 class _$EspBleDeviceImpl with DiagnosticableTreeMixin implements _EspBleDevice {
   const _$EspBleDeviceImpl({required this.name, required this.rssi});
 
-  factory _$EspBleDeviceImpl.fromJson(Map<String, dynamic> json) => _$$EspBleDeviceImplFromJson(json);
+  factory _$EspBleDeviceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EspBleDeviceImplFromJson(json);
 
   /// The device's advertised name.
   @override
@@ -139,11 +155,13 @@ class _$EspBleDeviceImpl with DiagnosticableTreeMixin implements _EspBleDevice {
             (identical(other.rssi, rssi) || other.rssi == rssi));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, rssi);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EspBleDevice
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EspBleDeviceImplCopyWith<_$EspBleDeviceImpl> get copyWith =>
@@ -158,19 +176,25 @@ class _$EspBleDeviceImpl with DiagnosticableTreeMixin implements _EspBleDevice {
 }
 
 abstract class _EspBleDevice implements EspBleDevice {
-  const factory _EspBleDevice({required final String name, required final int rssi}) = _$EspBleDeviceImpl;
+  const factory _EspBleDevice(
+      {required final String name,
+      required final int rssi}) = _$EspBleDeviceImpl;
 
-  factory _EspBleDevice.fromJson(Map<String, dynamic> json) = _$EspBleDeviceImpl.fromJson;
-
-  @override
+  factory _EspBleDevice.fromJson(Map<String, dynamic> json) =
+      _$EspBleDeviceImpl.fromJson;
 
   /// The device's advertised name.
-  String get name;
   @override
+  String get name;
 
   /// The device's BLE RSSI. The Espressif iOS library does not provide this value; on iOS it will always be 0.
-  int get rssi;
   @override
-  @JsonKey(ignore: true)
-  _$$EspBleDeviceImplCopyWith<_$EspBleDeviceImpl> get copyWith => throw _privateConstructorUsedError;
+  int get rssi;
+
+  /// Create a copy of EspBleDevice
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EspBleDeviceImplCopyWith<_$EspBleDeviceImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
