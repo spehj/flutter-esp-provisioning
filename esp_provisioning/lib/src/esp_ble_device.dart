@@ -6,7 +6,7 @@ part 'esp_ble_device.freezed.dart';
 
 /// Represents an ESP32 device.
 @freezed
-class EspBleDevice with _$EspBleDevice {
+abstract class EspBleDevice with _$EspBleDevice {
   /// Creates a new instance of [EspBleDevice].time.
   const factory EspBleDevice({
     /// The device's advertised name.
